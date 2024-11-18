@@ -1,0 +1,49 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  border: 1px solid red;
+}
+.dashboard-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid black;
+}
+.heading {
+  font-size: 1.5rem;
+}
+.dashboard-button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid red;
+}
+
+.welcome-message {
+  font-size: 1.5rem;
+  font-weight: bold;
+  height: 15vh;
+  border: 2px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dashboard-contents {
+  display: flex;
+  flex-direction: column;
+}
+.filter {
+  display: flex;
+  border: 2px solid black;
+  justify-content: end;
+  padding:10px;
+}
+.employee-data{
+    display: flex;
+    padding: 10px;
+    border: 2px solid green;
+    overflow-y: scroll;
+}

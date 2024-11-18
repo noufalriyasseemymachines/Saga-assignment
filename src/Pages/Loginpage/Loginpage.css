@@ -1,0 +1,25 @@
+.logincontainer-outer{
+    display: flex;
+    justify-content: center;
+    background-color: #66d7fa;
+    padding: 50px 50px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100vh;
+}
+.login-container-inner-left{
+    width: 40%;
+    background-color:#0084bb;
+    display: flex;
+    align-items: center;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+}
+.login-container-inner-right{
+    width: 45%;
+    background-color: #ffffff;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    align-content: center;
+}

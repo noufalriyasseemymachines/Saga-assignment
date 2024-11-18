@@ -1,0 +1,31 @@
+.button{
+    width: 100%;
+    padding: 1rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+}
+
+.signup-button{
+    background-color:#0084bb;
+    color:white;
+}
+.information-button{
+    color:black;
+}
+.add-button,.cancel-button{
+    background-color:#0084bb ;
+    color: white;
+    font-weight: bold;
+}
+.search-button{
+    width:fit-content;
+}
+
+.edit-button,.delete-button{
+    border-radius: 2px;
+    text-align: center;
+}
+

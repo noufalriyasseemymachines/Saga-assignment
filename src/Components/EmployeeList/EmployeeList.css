@@ -1,0 +1,46 @@
+.table-Container {
+    width: 100%;
+  }
+  
+  .employee-table {
+    width: 90%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+
+    text-align: left;
+    margin: 0 auto;
+  }
+  
+  .employee-table th, 
+  .employee-table td {
+    padding: 1rem;
+  }
+  
+  .employee-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: #333;
+  }
+  .employee-table td {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+ .action-buttons{
+    display: flex;
+    gap: 1rem;
+}
+  .table-Container button:first-child {
+    background-color: #4CAF50;
+    width: 40%;
+    height: 2rem;
+    padding: 10px;
+  }
+  
+  .table-Container button:last-child {
+    background-color: #f44336; 
+    width: 40%;
+    height: 2rem;
+    padding: 10px;
+  }
+  

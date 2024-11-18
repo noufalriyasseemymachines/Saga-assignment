@@ -1,0 +1,18 @@
+.input-full{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+input{
+    padding: 0.5rem;
+}
+label{
+    font-size: 1rem;
+    font-weight: bold;
+}
+.full-width{
+    width:100%;
+}
+.half-width{
+    width: 100%;
+}
