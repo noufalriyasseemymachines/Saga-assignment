@@ -1,21 +1,32 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../Button/Button";
 import "../Signup/Signup.css";
 import Input from "../Input/Input";
 import { useDispatch, useSelector } from "react-redux";
-import { registerRequest } from "../../Actions/AuthActions";
+import { clearRegisterError, registerRequest } from "../../Actions/AuthActions";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   const [user, setUser] = useState({ email: "", password: "" });
   const [confirmpass, setConfirmpass] = useState("");
   const dispatch = useDispatch();
-  const { loading, regError } = useSelector((state) => state.authRed);
+  const {regloading, regError } = useSelector((state) => state.authRed);
   const [errors, setErrors] = useState({});
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+
+  useEffect(() => {
+    if (regError) {
+      const timer = setTimeout(() => {
+        dispatch(clearRegisterError());
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [regError]);
 
   const validateFormDetails = () => {
     const newErrors = {};
@@ -33,7 +44,6 @@ const Signup = () => {
     } else if (!passwordRegex.test(user.password)) {
       newErrors.password = "Password Error";
       validPassword = false;
-      // "Password must be at least 8 characters and contain a letter and a number"
     }
     if (validPassword) {
       if (!confirmpass) {
@@ -50,20 +60,50 @@ const Signup = () => {
   const handleUserChange = (e) => {
     const { name, value } = e.target;
     setUser((prevState) => ({ ...prevState, [name]: value }));
+    if (name === "email") {
+      if (!emailRegex.test(value)) {
+        setErrors((prevState) => ({
+          ...prevState,
+          email: "Invalid email format",
+        }));
+      } else {
+        setErrors((prevState) => ({ ...prevState, email: "" }));
+      }
+    } else if (name === "password") {
+      if (!passwordRegex.test(value)) {
+        setErrors((prevState) => ({
+          ...prevState,
+          password: "Invalid Password format",
+        }));
+      } else {
+        setErrors((prevState) => ({ ...prevState, password: "" }));
+      }
+    }
   };
 
-  const handleChange=(e)=>{
-    setConfirmpass(e.target.value)
-  }
+  const handleChange = (e) => {
+    setConfirmpass(e.target.value);
+    if (e.target.value === user.password) {
+      setErrors((prevState) => ({ ...prevState, confirmPassword: "" }));
+    } else {
+      setErrors((prevState) => ({
+        ...prevState,
+        confirmPassword: "Passwords do not match",
+      }));
+    }
+  };
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateFormDetails()) {
-      dispatch(registerRequest(user,navigate));
-      setUser({email:"",password:""})
-      setConfirmpass("")
+      dispatch(registerRequest(user, navigate));
+      setUser({ email: "", password: "" });
+      setConfirmpass("");
     }
   };
+
 
   return (
     <div className="signup-container">
@@ -71,7 +111,9 @@ const Signup = () => {
         <div className="register-text">
           <h2 className="register-heading">REGISTER</h2>
         </div>
-         <p className={`error-message ${regError? "visible":""}`}>{regError}</p>
+        <p className={`error-message ${regError ? "visible" : ""}`}>
+          {regError}
+        </p>
         <div className="email-container">
           <Input
             type="email"
@@ -81,7 +123,9 @@ const Signup = () => {
             onChange={handleUserChange}
             name="email"
           ></Input>
-           <p className={`error-message ${errors.email? "visible":""}`}>{errors.email}</p>
+          <p className={`error-message ${errors.email ? "visible" : ""}`}>
+            {errors.email}
+          </p>
         </div>
         <div className="password-container">
           <div className="input-div">
@@ -93,7 +137,9 @@ const Signup = () => {
               onChange={handleUserChange}
               name="password"
             ></Input>
-              <p className={`error-message ${errors.password?"visible":""}`}>{errors.password}</p>
+            <p className={`error-message ${errors.password ? "visible" : ""}`}>
+              {errors.password}
+            </p>
           </div>
           <div className="input-div">
             <Input
@@ -105,7 +151,13 @@ const Signup = () => {
               value={confirmpass}
             ></Input>
 
-              <p className={`error-message ${errors.confirmPassword?"visible":""}`}>{errors.confirmPassword}</p>
+            <p
+              className={`error-message ${
+                errors.confirmPassword ? "visible" : ""
+              }`}
+            >
+              {errors.confirmPassword}
+            </p>
           </div>
         </div>
         <div className="button-signup">

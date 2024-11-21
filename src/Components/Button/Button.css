@@ -1,8 +1,8 @@
 .button{
     width: 100%;
     padding: 1rem;
-    border-top-left-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
+    border-top-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
     font-size: 1rem;
     border: none;
     outline: none;
@@ -21,11 +21,22 @@
     font-weight: bold;
 }
 .search-button{
-    width:fit-content;
+    background-color: #0084bb;
+    height:35px;
+    color: white;
+    font-size: 1rem;
 }
-
-.edit-button,.delete-button{
-    border-radius: 2px;
-    text-align: center;
+.modal-button{
+    width: fit-content;
+    font-size: 0.8rem;
+    padding: 10px 15px;
+    background-color: #0084bb;
+    white-space: nowrap;
+    color: white;
 }
-
+.logout-button{
+    font-size: 0.8rem;
+    padding: 10px 15px;
+    background-color: #0084bb;
+    color: white;
+}

@@ -14,12 +14,14 @@ import {
   GET_EMPLOYEE_BY_ID_FAILURE,
   GET_EMPLOYEE_BY_ID_REQUEST,
   GET_EMPLOYEE_BY_ID_SUCCESS,
+  RESET_EMPLOYEE,
 } from "../Actions/EmployeeActions";
 
 const initialState = {
   employees: [],
   loading: false,
-  error: null
+  error: null,
+  employe: [],
 };
 
 const employeeReducer = (state = initialState, action) => {
@@ -73,17 +75,23 @@ const employeeReducer = (state = initialState, action) => {
       return { ...state, loading: false, error: action.payload };
 
     case GET_EMPLOYEE_BY_ID_REQUEST:
-      return {...state,loading:true,error:null};
-    
+      return { ...state, loading: true, error: null };
+
     case GET_EMPLOYEE_BY_ID_SUCCESS:
-      return {...state,loading:false,employees:action.payload};
+      return { ...state, loading: false, employe: action.payload, error: null };
 
     case GET_EMPLOYEE_BY_ID_FAILURE:
-      return {...state,loading:false,error:action.payload};
+      return { ...state, loading: false, error: action.payload };
+
+    case RESET_EMPLOYEE:
+      return {
+        ...state,
+        employe: null,
+      };
 
     default:
-        return state
+      return state;
   }
 };
 
-export default employeeReducer
+export default employeeReducer;

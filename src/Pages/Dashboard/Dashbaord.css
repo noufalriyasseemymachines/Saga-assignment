@@ -3,47 +3,59 @@
   flex-direction: column;
   width: 100%;
   height: 100vh;
-  border: 1px solid red;
 }
 .dashboard-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
-  border: 1px solid black;
+  padding: 8px;
 }
 .heading {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 .dashboard-button {
   display: flex;
   align-items: center;
   gap: 1rem;
-  border: 1px solid red;
 }
 
 .welcome-message {
   font-size: 1.5rem;
-  font-weight: bold;
+  color: white;
   height: 15vh;
-  border: 2px solid grey;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #0084bb;
 }
-.dashboard-contents {
+.dashbaord-contents {
   display: flex;
   flex-direction: column;
+  margin-top: 1rem;
 }
 .filter {
   display: flex;
-  border: 2px solid black;
   justify-content: end;
-  padding:10px;
+  padding: 10px;
+  width: 98%;
+  margin-top: 1rem;
+  margin: 0 auto;
 }
-.employee-data{
-    display: flex;
-    padding: 10px;
-    border: 2px solid green;
-    overflow-y: scroll;
+.filter input {
+  width: 26%;
+  height: 35px;
+}
+.filter input::placeholder {
+  font-size: 0.7rem;
+}
+.filter button {
+  width: 10%;
+  padding: 10px;
+}
+
+.employee-data {
+  display: flex;
+  padding: 10px;
+  width: 98%;
+  margin: 0 auto;
 }
