@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Loginpage from './Pages/Loginpage/Loginpage'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Dashboard from './Pages/Dashboard/Dashboard'
+import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute'
+import Logout from './Pages/Logout/Logout'
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+    <ToastContainer position='bottom-right' autoClose={1200}></ToastContainer>
+      <Routes>
+        <Route path='/' element={<Loginpage/>} />
+        <Route path='/dashboard' element={<ProtectedRoute>
+          <Dashboard/>
+        </ProtectedRoute>} />
+        {/* <Route path='/logout' element={<Logout/>} /> */}
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
+

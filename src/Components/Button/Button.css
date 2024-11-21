@@ -1,0 +1,42 @@
+.button{
+    width: 100%;
+    padding: 1rem;
+    border-top-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+}
+
+.signup-button{
+    background-color:#0084bb;
+    color:white;
+}
+.information-button{
+    color:black;
+}
+.add-button,.cancel-button{
+    background-color:#0084bb ;
+    color: white;
+    font-weight: bold;
+}
+.search-button{
+    background-color: #0084bb;
+    height:35px;
+    color: white;
+    font-size: 1rem;
+}
+.modal-button{
+    width: fit-content;
+    font-size: 0.8rem;
+    padding: 10px 15px;
+    background-color: #0084bb;
+    white-space: nowrap;
+    color: white;
+}
+.logout-button{
+    font-size: 0.8rem;
+    padding: 10px 15px;
+    background-color: #0084bb;
+    color: white;
+}
